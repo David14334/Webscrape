@@ -74,3 +74,4 @@ for row in rows [:5]:
     print(f'% Change: {chang_text}')
     print(f'Starting Price: {s_price}')
     input()
+ 

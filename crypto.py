@@ -40,16 +40,17 @@ for x in range (1,6):
     print(f"Current Price: {current_price}")
     print(f"Old Price: {old_price}")
     print(f"% Change in last 24 hours: {percent_change}")
+  
 
     if name == "Bitcoin":
         btc = current_price
         if btc < 40000:
             textmessage = client.messages.create(to = mycellphone, from_= TwilioNumber, 
-            body ='BTC is below $40,000')
+            body ='BTC fell below $40,000')
     if name == "Ethereum":
         eth = current_price
         if eth < 3000:
             textmessage = client.messages.create(to = mycellphone, from_= TwilioNumber, 
-            body ='ETH is below $3,000')
+            body ='ETH fell below $3,000')
  
     input()

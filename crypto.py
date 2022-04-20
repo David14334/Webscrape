@@ -1,16 +1,11 @@
 from twilio.rest import Client
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-
-
-accountSID = 'AC71638ef020a1ca567796243e8047fdce'
-authToken = '1316d7763f6dc02bc0066b15c1891458'
+from keys import accountSID, authToken
 
 client = Client(accountSID, authToken)
-
 TwilioNumber = '+14126681320'
 mycellphone = '+18325097076'
-
 
 webpage = 'https://coinmarketcap.com/'
 
@@ -18,9 +13,6 @@ page = urlopen(webpage)
 soup = BeautifulSoup(page, 'html.parser')
 
 title = soup.title
-
-
-
 
 bitcoin_table = soup.find('table')
 rows = bitcoin_table.findAll('tr')
@@ -45,12 +37,10 @@ for x in range (1,6):
     if name == "Bitcoin":
         btc = current_price
         if btc < 40000:
-            textmessage = client.messages.create(to = mycellphone, from_= TwilioNumber, 
-            body ='BTC fell below $40,000')
+            textmessage = client.messages.create(to= mycellphone, from_= TwilioNumber, body ='BTC fell below $40,000')
     if name == "Ethereum":
         eth = current_price
         if eth < 3000:
-            textmessage = client.messages.create(to = mycellphone, from_= TwilioNumber, 
-            body ='ETH fell below $3,000')
+            textmessage = client.messages.create(to= mycellphone, from_= TwilioNumber, body ='ETH fell below $3,000')
  
     input()

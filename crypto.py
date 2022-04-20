@@ -51,5 +51,5 @@ for x in range (1,6):
         if eth < 3000:
             textmessage = client.messages.create(to  = mycellphone, from_= TwilioNumber, 
             body ='ETH is below $3,000')
-
+ 
     input()
